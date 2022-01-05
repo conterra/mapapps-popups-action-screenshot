@@ -13,11 +13,5 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-module.exports = {
-    root: {
-        bundleName: "Hello World",
-        bundleDescription: "This bundle prints Hello.",
-        hello: "Hello World"
-    },
-    de: true
-};
+import ".";
+import "./PopupsScreenshotActionFactory";

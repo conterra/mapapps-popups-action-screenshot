@@ -22,12 +22,37 @@
             "locateme",
             "parameter-url",
             "search-ui",
+            "agssearch",
             "locator-store",
             "toc",
-            "sample_helloworld"
+            "dn_popups-action-screenshot"
         ]
     },
     "bundles": {
+        "dn_popups-action-screenshot": {
+            "Config": {
+                "fileFormat": "pdf",
+                "fileName": "Popup"
+            }
+        },
+        "agssearch": {
+            "AGSStore": [
+                {
+                    "id": "pegelonline",
+                    "layerId": "pegelonline",
+                    "fetchIdProperty": true,
+                    "title": "Messstellen",
+                    "useIn": [
+                        "omnisearch",
+                        "selection"
+                    ],
+                    "description": "Suche nach Messstellen",
+                    "omniSearchDefaultLabel": "Messstelle suchen...",
+                    "omniSearchLabelAttr": "${longname} (${number})",
+                    "omniSearchSearchAttr": "longname"
+                }
+            ]
+        },
         "banner": {
             "BannerWidget": {
                 "label": "Developer Network",
@@ -55,22 +80,240 @@
                     }
                 ],
                 "map": {
-                    "layers": []
+                    "layers": [
+                        {
+                            "id": "pegelonline",
+                            "url": "https://services2.arcgis.com/jUpNdisbWqRpMo35/arcgis/rest/services/PegelOnline/FeatureServer/0",
+                            "type": "AGS_FEATURE",
+                            "title": "PegelOnline",
+                            "description": "",
+                            "visible": true,
+                            "definitionExpression": "parameter_name = 'WASSERSTAND ROHDATEN'",
+                            "outFields": [
+                                "*"
+                            ],
+                            "maptipTemplate": {
+                                "title": "",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "<h2 style='margin-top:0; margin-bottom: 0;'>Pegel: {expression/wert} {expression/trend}</h2><font color='#999'>{expression/date}</font>"
+                                    },
+                                    {
+                                        "type": "fields",
+                                        "fieldInfos": [
+                                            {
+                                                "fieldName": "expression/gewaesser"
+                                            },
+                                            {
+                                                "fieldName": "expression/messstelle"
+                                            },
+                                            {
+                                                "fieldName": "station_url",
+                                                "label": "Weitere Informationen"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "expressionInfos": [
+                                    {
+                                        "name": "wert",
+                                        "expression": "$feature.currentMeasure_value + ' ' + $feature.parameter_unit"
+                                    },
+                                    {
+                                        "name": "gewaesser",
+                                        "expression": "$feature.water_longname + ' (Kilometer ' + $feature.km + ')'",
+                                        "title": "Gewässer"
+                                    },
+                                    {
+                                        "name": "messstelle",
+                                        "expression": "$feature.longname + ' (' + $feature.number + ')'",
+                                        "title": "Messstelle"
+                                    },
+                                    {
+                                        "name": "trend",
+                                        "expression": "When($feature.currentMeasure_trend == 1, '↑',$feature.currentMeasure_trend == -1, '↓','')"
+                                    },
+                                    {
+                                        "name": "date",
+                                        "expression": "Day($feature.currentMeasure_timestamp) + '.' + (Month($feature.currentMeasure_timestamp)+1) + '.' + Year($feature.currentMeasure_timestamp) + ' - ' + Hour($feature.currentMeasure_timestamp) + ':' + (IIf(Minute($feature.currentMeasure_timestamp) < 10, Concatenate('0', Minute($feature.currentMeasure_timestamp)), Minute($feature.currentMeasure_timestamp))) + ' Uhr'",
+                                        "title": "Zeitpunkt"
+                                    }
+                                ]
+                            },
+                            "popupTemplate": {
+                                "title": "",
+                                "customActions": [
+                                    "export-popup-screenshot"
+                                ],
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "<h2 style='margin-top:0; margin-bottom: 0;'>Pegel: {expression/wert} {expression/trend}</h2><font color='#999'>{expression/date}</font>"
+                                    },
+                                    {
+                                        "type": "media",
+                                        "mediaInfos": [
+                                            {
+                                                "title": "{Name}",
+                                                "type": "image",
+                                                "value": {
+                                                    "sourceURL": "{station_graphic_url}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "fields",
+                                        "fieldInfos": [
+                                            {
+                                                "fieldName": "expression/gewaesser"
+                                            },
+                                            {
+                                                "fieldName": "expression/messstelle"
+                                            },
+                                            {
+                                                "fieldName": "station_url",
+                                                "label": "Weitere Informationen"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "expressionInfos": [
+                                    {
+                                        "name": "wert",
+                                        "expression": "$feature.currentMeasure_value + ' ' + $feature.parameter_unit"
+                                    },
+                                    {
+                                        "name": "gewaesser",
+                                        "expression": "$feature.water_longname + ' (Kilometer ' + $feature.km + ')'",
+                                        "title": "Gewässer"
+                                    },
+                                    {
+                                        "name": "messstelle",
+                                        "expression": "$feature.longname + ' (' + $feature.number + ')'",
+                                        "title": "Messstelle"
+                                    },
+                                    {
+                                        "name": "trend",
+                                        "expression": "When($feature.currentMeasure_trend == 1, '↑',$feature.currentMeasure_trend == -1, '↓','')"
+                                    },
+                                    {
+                                        "name": "date",
+                                        "expression": "Day($feature.currentMeasure_timestamp) + '.' + (Month($feature.currentMeasure_timestamp)+1) + '.' + Year($feature.currentMeasure_timestamp) + ' - ' + Hour($feature.currentMeasure_timestamp) + ':' + (IIf(Minute($feature.currentMeasure_timestamp) < 10, Concatenate('0', Minute($feature.currentMeasure_timestamp)), Minute($feature.currentMeasure_timestamp))) + ' Uhr'",
+                                        "title": "Zeitpunkt"
+                                    }
+                                ]
+                            },
+                            "renderer": {
+                                "type": "simple",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "color": [
+                                        100,
+                                        170,
+                                        233,
+                                        0.6
+                                    ],
+                                    "size": 6,
+                                    "outline": {
+                                        "color": [
+                                            0,
+                                            0,
+                                            0,
+                                            0.4
+                                        ],
+                                        "width": 0.5
+                                    }
+                                }
+                            },
+                            "labelingInfo": [
+                                {
+                                    "labelPlacement": "below-center",
+                                    "labelExpressionInfo": {
+                                        "expression": "IIf($feature.currentMeasure_trend == 1, '↑','')"
+                                    },
+                                    "symbol": {
+                                        "type": "text",
+                                        "font": {
+                                            "size": 12,
+                                            "wheight": "bold"
+                                        },
+                                        "color": "red"
+                                    }
+                                },
+                                {
+                                    "labelPlacement": "below-center",
+                                    "labelExpressionInfo": {
+                                        "expression": "IIf($feature.currentMeasure_trend == -1, '↓','')"
+                                    },
+                                    "symbol": {
+                                        "type": "text",
+                                        "font": {
+                                            "size": 12,
+                                            "wheight": "bold"
+                                        },
+                                        "color": "green"
+                                    }
+                                },
+                                {
+                                    "labelPlacement": "below-right",
+                                    "labelExpressionInfo": {
+                                        "expression": "$feature.currentMeasure_value + ' ' + $feature.parameter_unit"
+                                    },
+                                    "symbol": {
+                                        "type": "text",
+                                        "font": {
+                                            "size": 12
+                                        },
+                                        "color": "#666"
+                                    },
+                                    "minScale": 1500000
+                                },
+                                {
+                                    "labelExpressionInfo": {
+                                        "expression": "$feature.longname"
+                                    },
+                                    "symbol": {
+                                        "type": "text",
+                                        "font": {
+                                            "size": 10
+                                        },
+                                        "color": "#999"
+                                    },
+                                    "labelPlacement": "above-center",
+                                    "minScale": 1000000
+                                }
+                            ]
+                        }
+                    ]
                 },
                 "view": {
                     "viewmode": "2D",
+                    "scale": 5538887.9118813835,
                     "center": {
-                        "x": 774853,
-                        "y": 6610677,
-                        "spatialReference": 3857
+                        "x": 1156141.5978349957,
+                        "y": 6680651.550214538,
+                        "spatialReference": {
+                            "wkid": 3857
+                        }
                     },
-                    "scale": 140000
+                    "constraints": {
+                        "maxScale": 10000,
+                        "minScale": 10000000,
+                        "snapToZoom": false
+                    }
                 }
+            }
+        },
+        "popups": {
+            "Config": {
+                "dockingForced": true
             }
         },
         "toc": {
             "Config": {
-                "showBasemaps" : true,
+                "showBasemaps": true,
                 "showLayerLegend": true
             }
         },
