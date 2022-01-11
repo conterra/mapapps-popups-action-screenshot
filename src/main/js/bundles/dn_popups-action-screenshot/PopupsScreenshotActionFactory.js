@@ -26,8 +26,8 @@ export default class PopupsScreenshotActionFactory {
         return {
             id: "screenshot_action",
             type: "button",
-            title: "Screenshot",
-            className: "esri-icon-maximize",
+            title: i18n.takeScreenshot,
+            className: properties.iconClass,
             async trigger(context) {
                 const element = document.querySelector(".esri-popup__content");
                 const proxyUrl = esriConfig.request.proxyUrl;
