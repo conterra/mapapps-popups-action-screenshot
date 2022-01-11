@@ -27,7 +27,7 @@
             ],
             "properties": {
                 "id": "export-popup-screenshot",
-                "iconClass": "esri-icon-maximize",
+                "iconClass": "esri-icon-save",
                 "fileFormat": "png",
                 "fileName": "Popup",
                 "html2canvasOptions": {
