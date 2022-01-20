@@ -17,7 +17,7 @@ It is built with [html2canvas](https://github.com/niklasvh/html2canvas) and [jsP
                     {
                         ...
                         "popupTemplate": {
-                            "customActions": ["export-screenshot"]
+                            "customActions": ["export-popup-screenshot"]
                         }
                     }
                 ]
