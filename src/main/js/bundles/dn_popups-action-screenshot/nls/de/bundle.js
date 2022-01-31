@@ -17,6 +17,6 @@ module.exports = {
     bundleName: "Popups Action Screenshot",
     bundleDescription: "Dieses Bundle fügt eine neue Aktion zum Speichern von Popup-Inhalten in einer Datei hinzu.",
     ui: {
-        takeScreenshot: "Inhalt speichern"
+        takeScreenshot: "Speichern"
     }
 };
