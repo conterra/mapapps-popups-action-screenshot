@@ -526,10 +526,10 @@
         </plugins>
     </build>
     <scm>
-        <connection>scm:git:https://github.com/conterra/mapapps-remote-project-blueprint.git</connection>
-        <developerConnection>scm:git:https://github.com/conterra/mapapps-remote-project-blueprint.git
+        <connection>scm:git:https://github.com/conterra/mapapps-popups-action-screenshot.git</connection>
+        <developerConnection>scm:git:https://github.com/conterra/mapapps-popups-action-screenshot.git
         </developerConnection>
-        <url>https://github.com/conterra/mapapps-remote-project-blueprint</url>
+        <url>https://github.com/conterra/mapapps-popups-action-screenshot</url>
         <tag>HEAD</tag>
     </scm>
     <distributionManagement>
