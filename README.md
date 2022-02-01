@@ -1,5 +1,6 @@
 # Popups Action Screenshot
 
+## Build Status
 This bundle adds a new action to save popup contents to a file.
 
 [![devnet-bundle-snapshot](https://github.com/conterra/mapapps-popups-action-screenshot/actions/workflows/devnet-bundle-snapshot.yml/badge.svg)](https://github.com/conterra/mapapps-popups-action-screenshot/actions/workflows/devnet-bundle-snapshot.yml)
