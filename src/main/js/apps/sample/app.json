@@ -82,6 +82,48 @@
                 "map": {
                     "layers": [
                         {
+                            "id": "groupID_Kartendienste_des_Landes_NRW",
+                            "type": "GROUP",
+                            "expanded": false,
+                            "title": "Kartendienste des Landes NRW",
+                            "description": "Kartendienste des Landes Nordrhein-Westfalen",
+                            "visible": false,
+                            "layers": [
+                                {
+                                    "id": "wmsID_uegebiete_nrw",
+                                    "url": "https://www.wms.nrw.de/umwelt/uesg?",
+                                    "type": "WMS",
+                                    "title": "WMS Überschwemmungsgebiete NRW",
+                                    "description": "Stand: Aktuell. Unabhängig von den Vorgaben der EG-Richtlinie über die Bewertung und das Management von Hochwasserrisiken (EG-HWRM-RL) werden in Nordrhein-Westfalen seit vielen Jahren die Überschwemmungsgebiete von hochwassergefährdeten Gewässern rechnerisch ermittelt und durch ordnungsbehördliche Verordnung festgesetzt bzw. vorläufig gesichert. Berechnungsgrundlage ist dabei bundeseinheitlich ein Hochwasserereignis, wie es statistisch einmal in 100 Jahren zu erwarten ist. Die Ausweisung von Überschwemmungsgebieten gehört zu den strategischen Vorsorgemaßnahmen im Hochwasserschutz mit unmittelbaren planungsrechtlichen Auswirkungen, wie z.B. Restriktionen bei der Ausweisung oder Erweiterung kommunaler Baugebiete. Diese Aufgabe bleibt - unabhängig von der EG-HWRM-RL - weiterhin gesetzliche Pflicht und wird durch die Bezirksregierungen wahrgenommen. Weitere Informationen finden Sie auf den Internetseiten der Bezirksregierungen.",
+                                    "visible": false,
+                                    "popupTemplate": {
+                                        "popupType": "default",
+                                        "customActions": [
+                                            "export-popup-screenshot"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "id": "wmsID_HW_Gefahrenkarte",
+                                    "url": "https://www.wms.nrw.de/umwelt/wasser/HW_Gefahrenkarte?",
+                                    "type": "WMS",
+                                    "title": "WMS Hochwasser-Gefahrenkarte NRW",
+                                    "description": "Nordrhein-Westfalen unternimmt seit vielen Jahren erhebliche Anstrengungen. um Menschen, Umwelt. Wirtschafts- und Kulturgüter vor den Gefahren durch Hochwasser zu schützen. Neben baulichen Maßnahmen kommt dabei der Kartierung von Risiken, der Information der betroffenen Bürgerinnen und Bürger, der Vorsorgeplanung sowie der hochwassergerechten Entwicklungsplanung eine zentrale Bedeutung zu. Bis zum Jahr 2015 werden in Nordrhein-Westfalen für alle Gebiete. in denen signifikante Hochwasserschäden auftreten können, Hochwasserrisikomanagementpläne erarbeitet. Ziel der neuen Pläne ist es. über bestehende Gefahren zu informieren und Maßnahmen unterschiedlicher Akteure zu erfassen und abzustimmen, um hochwasserbedingte Risiken für die menschliche Gesundheit, die Umwelt, Infrastrukturen und Eigentum zu verringern und zu bewältigen. Grundlage dafür ist die EG-Richtlinie über die Bewertung und das Management von Hochwasserrisiken (EG-HWRM-RL), die am 26. November 2007 in Kraft getreten ist. Die Zielsetzung der Richtlinie wurde von der Bundesregierung in die Novelle des Wasserhaushaltsgesetzes (WHG) übernommen (in Kraft seit 1. März 2010). Zur Umsetzung des WHG sind folgende Schritte vorgesehen: Bis Dezember 2011: Vorläufige Bewertung und Festlegung der Gebiete. in denen Hochwasser eine erhebliche Gefahr für menschliche Gesundheit, Umwelt, Kulturerbe, wirtschaftliche Tätigkeiten oder Sachwerte darstellen können (sogenannte Risikogebiete). Bis Dezember 2013: Erstellung von Hochwassergefahren- und risikokarten für diese Gebiete.  Hochwassergefahrenkarten informieren über die mögliche Ausdehnung und Tiefe einer Überflutung. Dabei wird die örtliche Hochwassersituation für ein Extremhochwasser, für ein 100-jährliches Ereignis und auch für ein häufiges Hochwasserereignis darstellt.  Ersteller: Bezirksregierungen von NRW Stand: Dezember 2013",
+                                    "visible": false,
+                                    "opacity": 0.7
+                                },
+                                {
+                                    "id": "wmsID_HW_Risikokarte",
+                                    "url": "https://www.wms.nrw.de/umwelt/wasser/HW_Risikokarte?",
+                                    "type": "WMS",
+                                    "title": "WMS Hochwasser-Risikokarte NRW",
+                                    "description": "Nordrhein-Westfalen unternimmt seit vielen Jahren erhebliche Anstrengungen, um Menschen, Umwelt, Wirtschafts- und Kulturgüter vor den Gefahren durch Hochwasser zu schützen. Neben baulichen Maßnahmen kommt dabei der Kartierung von Risiken, der Information der betroffenen Bürgerinnen und Bürger, der Vorsorgeplanung sowie der hochwassergerechten Entwicklungsplanung eine zentrale Bedeutung zu.\nBis zum Jahr 2015 werden in Nordrhein-Westfalen für alle Gebiete, in denen signifikante Hochwasserschäden auftreten können, Hochwasserrisikomanagementpläne erarbeitet. Ziel der neuen Pläne ist es, über bestehende Gefahren zu informieren und Maßnahmen unterschiedlicher Akteure zu erfassen und abzustimmen, um hochwasserbedingte Risiken für die menschliche Gesundheit, die Umwelt, Infrastrukturen und Eigentum zu verringern und zu bewältigen.\nGrundlage dafür ist die EG-Richtlinie über die Bewertung und das Management von Hochwasserrisiken (EG-HWRM-RL), die am 26. November 2007 in Kraft getreten ist. Die Zielsetzung der Richtlinie wurde von der Bundesregierung in die Novelle des Wasserhaushaltsgesetzes (WHG) übernommen (in Kraft seit 1. März 2010).\nZur Umsetzung des WHG sind folgende Schritte vorgesehen:\nBis Dezember 2011: Vorläufige Bewertung und Festlegung der Gebiete, in denen Hochwasser eine erhebliche Gefahr für menschliche Gesundheit, Umwelt, Kulturerbe, wirtschaftliche Tätigkeiten oder Sachwerte darstellen können (sogenannte Risikogebiete).\nBis Dezember 2013: Erstellung von Hochwassergefahren- und risikokarten für diese Gebiete.\n\nHochwasserrisikokarten werden auf der Grundlage der Hochwassergefahrenkarten für die gleichen Hochwasserszenarien erstellt. In ihnen sollen über die Hochwassergefahren (Überschwemmungsausdehnung) hinaus die hochwasserbedingten nachteiligen Auswirkungen (z.B. Anzahl der betroffenen Einwohner, betroffene Wohn- oder Schutzgebiete, gefährdete Kulturobjekte) dargestellt werden.\n\n Ersteller: Bezirksregierungen von NRW\n Stand: Dezember 2013",
+                                    "visible": false,
+                                    "opacity": 0.7
+                                }
+                            ]
+                        },
+                        {
                             "id": "pegelonline",
                             "url": "https://services2.arcgis.com/jUpNdisbWqRpMo35/arcgis/rest/services/PegelOnline/FeatureServer/0",
                             "type": "AGS_FEATURE",
