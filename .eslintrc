@@ -1,6 +1,7 @@
 {
-    "extends": "eslint-config-ct-prodeng",
-    "plugins": [
-        "vue"
-    ]
+	"extends": "eslint-config-ct-prodeng",
+	"plugins": [
+		"vue"
+	],
+    "ignorePatterns": ["/src/main/js/bundles/dn_popups-action-screenshot/jspdf.umd.min.js", "/src/main/js/bundles/dn_popups-action-screenshot/html2canvas.min.js"]
 }

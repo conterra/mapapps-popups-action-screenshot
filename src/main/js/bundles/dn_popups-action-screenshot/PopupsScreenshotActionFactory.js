@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 con terra GmbH (info@conterra.de)
+ * Copyright (C) 2023 con terra GmbH (info@conterra.de)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ export default class PopupsScreenshotActionFactory {
             title: i18n.takeScreenshot,
             className: properties.iconClass,
             async trigger(context) {
-                const element = document.querySelector(".esri-popup__content");
+                const element = document.querySelector(".esri-popup__content-node");
                 const proxyUrl = esriConfig.request.proxyUrl;
                 const html2canvasOptions = properties.html2canvasOptions;
                 if (!html2canvasOptions.proxy) {
@@ -57,7 +57,7 @@ export default class PopupsScreenshotActionFactory {
     #downloadPDF(canvasElement) {
         const doc = new jsPDF();
         doc.addImage(canvasElement, "JPEG", 10, 10);
-        const fileName = this._properties.fileName + ".pdf"
+        const fileName = this._properties.fileName + ".pdf";
         doc.save(fileName);
     }
 
@@ -65,7 +65,7 @@ export default class PopupsScreenshotActionFactory {
         const downloadURL = canvasElement.toDataURL();
         const imgURL = document.createElement("a");
         imgURL.setAttribute("href", downloadURL);
-        const fileName = this._properties.fileName + ".png"
+        const fileName = this._properties.fileName + ".png";
         imgURL.setAttribute("download", fileName);
         imgURL.style.display = "none";
         document.body.appendChild(imgURL);
