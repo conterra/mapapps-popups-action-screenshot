@@ -19,7 +19,7 @@ import esriConfig from "esri/config";
 
 export default class PopupsScreenshotActionFactory {
 
-    createAction(type) {
+    createAction() {
         const i18n = this._i18n.get().ui;
         const properties = this._properties;
         const that = this;
@@ -28,7 +28,7 @@ export default class PopupsScreenshotActionFactory {
             type: "button",
             title: i18n.takeScreenshot,
             className: properties.iconClass,
-            async trigger(context) {
+            async trigger() {
                 const element = document.querySelector(".esri-popup__content-node");
                 const proxyUrl = esriConfig.request.proxyUrl;
                 const html2canvasOptions = properties.html2canvasOptions;
