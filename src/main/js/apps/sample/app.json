@@ -6,7 +6,6 @@
         ],
         "allowedBundles": [
             "system",
-            "console",
             "notifier",
             "splashscreen",
             "templatelayout",
