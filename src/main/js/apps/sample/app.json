@@ -1,9 +1,5 @@
 {
     "load": {
-        "bundleLocations": [
-            "localbundles",
-            "bundles"
-        ],
         "allowedBundles": [
             "system",
             "notifier",
@@ -34,24 +30,6 @@
                 "fileName": "Popup"
             }
         },
-        "agssearch": {
-            "AGSStore": [
-                {
-                    "id": "pegelonline",
-                    "layerId": "pegelonline",
-                    "fetchIdProperty": true,
-                    "title": "Messstellen",
-                    "useIn": [
-                        "omnisearch",
-                        "selection"
-                    ],
-                    "description": "Suche nach Messstellen",
-                    "omniSearchDefaultLabel": "Messstelle suchen...",
-                    "omniSearchLabelAttr": "${longname} (${number})",
-                    "omniSearchSearchAttr": "longname"
-                }
-            ]
-        },
         "banner": {
             "BannerWidget": {
                 "label": "Developer Network",
@@ -69,7 +47,7 @@
                         "title": "Straßenkarte (grau)",
                         "thumbnailUrl": "resource('${app}:/images/streets.png')",
                         "selected": true,
-                        "basemap": "gray-vector"
+                        "basemap": "gray"
                     },
                     {
                         "id": "esri_hybrid",
@@ -80,45 +58,334 @@
                 ],
                 "map": {
                     "layers": [
-                        {
-                            "id": "groupID_Kartendienste_des_Landes_NRW",
+                         {
+                            "id": "koeln2",
+                            "title": "${map.koeln2.title}",
+                            "description": "${map.koeln2.description}",
                             "type": "GROUP",
-                            "expanded": false,
-                            "title": "Kartendienste des Landes NRW",
-                            "description": "Kartendienste des Landes Nordrhein-Westfalen",
-                            "visible": false,
                             "layers": [
                                 {
-                                    "id": "wmsID_uegebiete_nrw",
-                                    "url": "https://www.wms.nrw.de/umwelt/uesg?",
-                                    "type": "WMS",
-                                    "title": "WMS Überschwemmungsgebiete NRW",
-                                    "description": "Stand: Aktuell. Unabhängig von den Vorgaben der EG-Richtlinie über die Bewertung und das Management von Hochwasserrisiken (EG-HWRM-RL) werden in Nordrhein-Westfalen seit vielen Jahren die Überschwemmungsgebiete von hochwassergefährdeten Gewässern rechnerisch ermittelt und durch ordnungsbehördliche Verordnung festgesetzt bzw. vorläufig gesichert. Berechnungsgrundlage ist dabei bundeseinheitlich ein Hochwasserereignis, wie es statistisch einmal in 100 Jahren zu erwarten ist. Die Ausweisung von Überschwemmungsgebieten gehört zu den strategischen Vorsorgemaßnahmen im Hochwasserschutz mit unmittelbaren planungsrechtlichen Auswirkungen, wie z.B. Restriktionen bei der Ausweisung oder Erweiterung kommunaler Baugebiete. Diese Aufgabe bleibt - unabhängig von der EG-HWRM-RL - weiterhin gesetzliche Pflicht und wird durch die Bezirksregierungen wahrgenommen. Weitere Informationen finden Sie auf den Internetseiten der Bezirksregierungen.",
-                                    "visible": false,
+                                    "title": "${map.koeln2.libraries.title}",
+                                    "url": "https://services.arcgis.com/ObdAEOfl1Z5LP2D0/arcgis/rest/services/Köln/FeatureServer/1",
+                                    "type": "AGS_FEATURE",
+                                    "visible": true,
                                     "popupTemplate": {
-                                        "popupType": "default",
-                                        "customActions": [
+                                        "title": "{NAME_LANG}",
+                                        "content": [
+                                            {
+                                                "type": "fields",
+                                                "fieldInfos": [
+                                                    {
+                                                        "fieldName": "NAME_LANG",
+                                                        "label": "${common.name}"
+                                                    },
+                                                    {
+                                                        "fieldName": "ADRESSE",
+                                                        "label": "${common.address}"
+                                                    },
+                                                    {
+                                                        "fieldName": "PLZ",
+                                                        "label": "${common.zip}"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                         "customActions": [
                                             "export-popup-screenshot"
                                         ]
                                     }
                                 },
                                 {
-                                    "id": "wmsID_HW_Gefahrenkarte",
-                                    "url": "https://www.wms.nrw.de/umwelt/wasser/HW_Gefahrenkarte?",
-                                    "type": "WMS",
-                                    "title": "WMS Hochwasser-Gefahrenkarte NRW",
-                                    "description": "Nordrhein-Westfalen unternimmt seit vielen Jahren erhebliche Anstrengungen. um Menschen, Umwelt. Wirtschafts- und Kulturgüter vor den Gefahren durch Hochwasser zu schützen. Neben baulichen Maßnahmen kommt dabei der Kartierung von Risiken, der Information der betroffenen Bürgerinnen und Bürger, der Vorsorgeplanung sowie der hochwassergerechten Entwicklungsplanung eine zentrale Bedeutung zu. Bis zum Jahr 2015 werden in Nordrhein-Westfalen für alle Gebiete. in denen signifikante Hochwasserschäden auftreten können, Hochwasserrisikomanagementpläne erarbeitet. Ziel der neuen Pläne ist es. über bestehende Gefahren zu informieren und Maßnahmen unterschiedlicher Akteure zu erfassen und abzustimmen, um hochwasserbedingte Risiken für die menschliche Gesundheit, die Umwelt, Infrastrukturen und Eigentum zu verringern und zu bewältigen. Grundlage dafür ist die EG-Richtlinie über die Bewertung und das Management von Hochwasserrisiken (EG-HWRM-RL), die am 26. November 2007 in Kraft getreten ist. Die Zielsetzung der Richtlinie wurde von der Bundesregierung in die Novelle des Wasserhaushaltsgesetzes (WHG) übernommen (in Kraft seit 1. März 2010). Zur Umsetzung des WHG sind folgende Schritte vorgesehen: Bis Dezember 2011: Vorläufige Bewertung und Festlegung der Gebiete. in denen Hochwasser eine erhebliche Gefahr für menschliche Gesundheit, Umwelt, Kulturerbe, wirtschaftliche Tätigkeiten oder Sachwerte darstellen können (sogenannte Risikogebiete). Bis Dezember 2013: Erstellung von Hochwassergefahren- und risikokarten für diese Gebiete.  Hochwassergefahrenkarten informieren über die mögliche Ausdehnung und Tiefe einer Überflutung. Dabei wird die örtliche Hochwassersituation für ein Extremhochwasser, für ein 100-jährliches Ereignis und auch für ein häufiges Hochwasserereignis darstellt.  Ersteller: Bezirksregierungen von NRW Stand: Dezember 2013",
-                                    "visible": false,
-                                    "opacity": 0.7
+                                    "title": "${map.koeln2.museums.title}",
+                                    "url": "https://services.arcgis.com/ObdAEOfl1Z5LP2D0/arcgis/rest/services/Köln/FeatureServer/2",
+                                    "type": "AGS_FEATURE",
+                                    "visible": true,
+                                    "popupTemplate": {
+                                        "title": "Museum",
+                                        "content": [
+                                            {
+                                                "type": "text",
+                                                "text": "${map.koeln2.museums.text}"
+                                            },
+                                            {
+                                                "type": "fields",
+                                                "fieldInfos": [
+                                                    {
+                                                        "fieldName": "ADRESSE",
+                                                        "label": "${common.address}"
+                                                    },
+                                                    {
+                                                        "fieldName": "STADTBEZIR",
+                                                        "label": "${common.precint}"
+                                                    },
+                                                    {
+                                                        "fieldName": "HYPERLINK",
+                                                        "label": "${common.furtherinfo}"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                         "customActions": [
+                                            "export-popup-screenshot"
+                                        ]
+                                    }
                                 },
                                 {
-                                    "id": "wmsID_HW_Risikokarte",
-                                    "url": "https://www.wms.nrw.de/umwelt/wasser/HW_Risikokarte?",
-                                    "type": "WMS",
-                                    "title": "WMS Hochwasser-Risikokarte NRW",
-                                    "description": "Nordrhein-Westfalen unternimmt seit vielen Jahren erhebliche Anstrengungen, um Menschen, Umwelt, Wirtschafts- und Kulturgüter vor den Gefahren durch Hochwasser zu schützen. Neben baulichen Maßnahmen kommt dabei der Kartierung von Risiken, der Information der betroffenen Bürgerinnen und Bürger, der Vorsorgeplanung sowie der hochwassergerechten Entwicklungsplanung eine zentrale Bedeutung zu.\nBis zum Jahr 2015 werden in Nordrhein-Westfalen für alle Gebiete, in denen signifikante Hochwasserschäden auftreten können, Hochwasserrisikomanagementpläne erarbeitet. Ziel der neuen Pläne ist es, über bestehende Gefahren zu informieren und Maßnahmen unterschiedlicher Akteure zu erfassen und abzustimmen, um hochwasserbedingte Risiken für die menschliche Gesundheit, die Umwelt, Infrastrukturen und Eigentum zu verringern und zu bewältigen.\nGrundlage dafür ist die EG-Richtlinie über die Bewertung und das Management von Hochwasserrisiken (EG-HWRM-RL), die am 26. November 2007 in Kraft getreten ist. Die Zielsetzung der Richtlinie wurde von der Bundesregierung in die Novelle des Wasserhaushaltsgesetzes (WHG) übernommen (in Kraft seit 1. März 2010).\nZur Umsetzung des WHG sind folgende Schritte vorgesehen:\nBis Dezember 2011: Vorläufige Bewertung und Festlegung der Gebiete, in denen Hochwasser eine erhebliche Gefahr für menschliche Gesundheit, Umwelt, Kulturerbe, wirtschaftliche Tätigkeiten oder Sachwerte darstellen können (sogenannte Risikogebiete).\nBis Dezember 2013: Erstellung von Hochwassergefahren- und risikokarten für diese Gebiete.\n\nHochwasserrisikokarten werden auf der Grundlage der Hochwassergefahrenkarten für die gleichen Hochwasserszenarien erstellt. In ihnen sollen über die Hochwassergefahren (Überschwemmungsausdehnung) hinaus die hochwasserbedingten nachteiligen Auswirkungen (z.B. Anzahl der betroffenen Einwohner, betroffene Wohn- oder Schutzgebiete, gefährdete Kulturobjekte) dargestellt werden.\n\n Ersteller: Bezirksregierungen von NRW\n Stand: Dezember 2013",
+                                    "id": "schools",
+                                    "title": "${map.koeln2.schools.title}",
+                                    "url": "https://services.arcgis.com/ObdAEOfl1Z5LP2D0/arcgis/rest/services/Köln/FeatureServer/3",
+                                    "type": "AGS_FEATURE",
                                     "visible": false,
-                                    "opacity": 0.7
+                                    "popupTemplate": {
+                                        "title": "{NAME}",
+                                        "content": [
+                                            {
+                                                "type": "fields",
+                                                "fieldInfos": [
+                                                    {
+                                                        "fieldName": "SCHULNAME",
+                                                        "label": "${common.name}"
+                                                    },
+                                                    {
+                                                        "fieldName": "ADRESSE",
+                                                        "label": "${common.address}"
+                                                    },
+                                                    {
+                                                        "fieldName": "SCHULART",
+                                                        "label": "${common.type}"
+                                                    },
+                                                    {
+                                                        "fieldName": "TRAEGER",
+                                                        "label": "${common.provider}"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                         "customActions": [
+                                            "export-popup-screenshot"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "koeln3",
+                            "title": "${map.koeln3.title}",
+                            "type": "GROUP",
+                            "visible": true,
+                            "layers": [
+                                {
+                                    "title": "${map.koeln3.sights.title}",
+                                    "url": "https://services.arcgis.com/ObdAEOfl1Z5LP2D0/arcgis/rest/services/Köln/FeatureServer/4",
+                                    "type": "AGS_FEATURE",
+                                    "popupTemplate": {
+                                        "title": "${map.koeln3.sights.titleSingle}",
+                                        "content": [
+                                            {
+                                                "type": "text",
+                                                "text": "${map.koeln3.sights.text}"
+                                            },
+                                            {
+                                                "type": "fields",
+                                                "fieldInfos": [
+                                                    {
+                                                        "fieldName": "ADRESSE",
+                                                        "label": "${common.address}"
+                                                    },
+                                                    {
+                                                        "fieldName": "STADTBEZIRK",
+                                                        "label": "${common.precint}"
+                                                    },
+                                                    {
+                                                        "fieldName": "HYPERLINK",
+                                                        "label": "${common.furtherinfo}"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                         "customActions": [
+                                            "export-popup-screenshot"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "title": "${map.koeln3.playgrounds.title}",
+                                    "url": "https://services.arcgis.com/ObdAEOfl1Z5LP2D0/arcgis/rest/services/Köln/FeatureServer/5",
+                                    "type": "AGS_FEATURE",
+                                    "visible": false,
+                                    "popupTemplate": {
+                                        "title": "{Typ}",
+                                        "content": [
+                                            {
+                                                "type": "text",
+                                                "text": "${map.koeln3.playgrounds.text}"
+                                            }
+                                        ],
+                                         "customActions": [
+                                            "export-popup-screenshot"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "title": "${map.koeln3.places.title}",
+                                    "url": "https://services.arcgis.com/ObdAEOfl1Z5LP2D0/arcgis/rest/services/Köln/FeatureServer/9",
+                                    "type": "AGS_FEATURE",
+                                    "popupTemplate": {
+                                        "title": "${map.koeln3.places.titleSingle}",
+                                        "content": [
+                                            {
+                                                "type": "text",
+                                                "text": "${map.koeln3.places.text}"
+                                            },
+                                            {
+                                                "type": "fields",
+                                                "fieldInfos": [
+                                                    {
+                                                        "fieldName": "ADRESSE",
+                                                        "label": "${common.address}"
+                                                    },
+                                                    {
+                                                        "fieldName": "STADTVIERT",
+                                                        "label": "${common.district}"
+                                                    },
+                                                    {
+                                                        "fieldName": "HYPERLINK",
+                                                        "label": "${common.furtherinfo}"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                         "customActions": [
+                                            "export-popup-screenshot"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "koeln1",
+                            "title": "${map.koeln1.title}",
+                            "type": "GROUP",
+                            "visible": true,
+                            "layers": [
+                                {
+                                    "title": "${map.koeln1.districts.title}",
+                                    "url": "https://services.arcgis.com/ObdAEOfl1Z5LP2D0/arcgis/rest/services/Köln/FeatureServer/8",
+                                    "type": "AGS_FEATURE",
+                                    "visible": false,
+                                    "opacity": 0.5,
+                                    "popupTemplate": {
+                                        "title": "{STV_NAME}",
+                                        "content": [
+                                            {
+                                                "type": "text",
+                                                "text": "${map.koeln1.districts.text}"
+                                            }
+                                        ],
+                                         "customActions": [
+                                            "export-popup-screenshot"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "title": "${map.koeln1.boroughs.title}",
+                                    "url": "https://services.arcgis.com/ObdAEOfl1Z5LP2D0/arcgis/rest/services/Köln/FeatureServer/7",
+                                    "type": "AGS_FEATURE",
+                                    "opacity": 0.5,
+                                    "minScale": 80000,
+                                    "popupTemplate": {
+                                        "title": "{NAME}",
+                                        "content": [
+                                            {
+                                                "type": "text",
+                                                "text": "${map.koeln1.boroughs.text}"
+                                            },
+                                            {
+                                                "type": "fields",
+                                                "fieldInfos": [
+                                                    {
+                                                        "fieldName": "expression/area",
+                                                        "format": {
+                                                            "places": 2,
+                                                            "digitSeparator": true
+                                                        }
+                                                    },
+                                                    {
+                                                        "fieldName": "expression/area-rel",
+                                                        "format": {
+                                                            "places": 2,
+                                                            "digitSeparator": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                         "customActions": [
+                                            "export-popup-screenshot"
+                                        ],
+                                        "expressionInfos": [
+                                            {
+                                                "name": "area",
+                                                "title": "${common.area}",
+                                                "expression": "$feature.FLAECHE / 10000"
+                                            },
+                                            {
+                                                "name": "area-rel",
+                                                "title": "${common.totalArea}",
+                                                "expression": "Round(($feature.FLAECHE / 405020000)*100,2)"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "title": "${map.koeln1.precints.title}",
+                                    "url": "https://services.arcgis.com/ObdAEOfl1Z5LP2D0/arcgis/rest/services/Köln/FeatureServer/6",
+                                    "type": "AGS_FEATURE",
+                                    "opacity": 0.5,
+                                    "maxScale": 80000,
+                                    "popupTemplate": {
+                                        "title": "{NAME}",
+                                        "content": [
+                                            {
+                                                "type": "text",
+                                                "text": "${map.koeln1.precints.text}"
+                                            },
+                                            {
+                                                "type": "fields",
+                                                "fieldInfos": [
+                                                    {
+                                                        "fieldName": "expression/area",
+                                                        "format": {
+                                                            "places": 2,
+                                                            "digitSeparator": true
+                                                        }
+                                                    },
+                                                    {
+                                                        "fieldName": "expression/area-rel",
+                                                        "format": {
+                                                            "places": 2,
+                                                            "digitSeparator": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                         "customActions": [
+                                            "export-popup-screenshot"
+                                        ],
+                                        "expressionInfos": [
+                                            {
+                                                "name": "area",
+                                                "title": "${common.area}",
+                                                "expression": "$feature.FLAECHE / 10000"
+                                            },
+                                            {
+                                                "name": "area-rel",
+                                                "title": "${common.totalArea}",
+                                                "expression": "Round(($feature.FLAECHE / 405020000)*100,2)"
+                                            }
+                                        ]
+                                    }
                                 }
                             ]
                         }
@@ -145,12 +412,6 @@
         "popups": {
             "Config": {
                 "dockingForced": true
-            }
-        },
-        "toc": {
-            "Config": {
-                "showBasemaps": true,
-                "showLayerLegend": true
             }
         },
         "toolset": {
@@ -205,6 +466,30 @@
                     }
                 ]
             }
+        },
+        "toc": {
+            "Config": {
+                "showBasemaps": true,
+                "showLayerLegend": true
+            }
+        },
+        "agssearch": {
+            "AGSStore": [
+                {
+                    "id": "pegelonline",
+                    "layerId": "pegelonline",
+                    "fetchIdProperty": true,
+                    "title": "Messstellen",
+                    "useIn": [
+                        "omnisearch",
+                        "selection"
+                    ],
+                    "description": "Suche nach Messstellen",
+                    "omniSearchDefaultLabel": "Messstelle suchen...",
+                    "omniSearchLabelAttr": "${longname} (${number})",
+                    "omniSearchSearchAttr": "longname"
+                }
+            ]
         }
     }
 }
