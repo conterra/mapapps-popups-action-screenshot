@@ -1,3 +1,4 @@
+⚠️ This bundle is no longer in active development.
 # Popups Action Screenshot
 This bundle adds a new action to save popup contents to a file.
 
